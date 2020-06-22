@@ -14,8 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "express-graphql": "^0.9.0",
-    "graphql": "^14.5.8",
-    "majidai": "^1.1.0"
+    "graphql": "^15.1.0",
+    "majidai": "^2.0.0-alpha.0.0.0"
   },
   "devDependencies": {}
 }

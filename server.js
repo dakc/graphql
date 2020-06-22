@@ -1,14 +1,15 @@
 const majidai = require("majidai");
 const graphqlHTTP = require("./graphql-util");
-const wrapperExpress = require("./express-graphql-wrapper");
 
 // create instance
-const server = new majidai({port: 8000});
+const server = new majidai({ http: { port: 8000 } });
+server.on("stdout", console.log);
+server.on("stderr", console.error);
 
-// create routing
-server.customRouting({method:["GET", "POST"],routing:"/graphql"}, function(app){
-    var dt = wrapperExpress(app)
-    graphqlHTTP(dt.req, dt.res);
+// must listen to GET & POST on same path
+server.listen({method:["GET", "POST"],path:"/graphql"}, function(req, res){
+    req.body = req.method == "GET" ? req.mj.getParams() : req.mj.postParams();
+    graphqlHTTP(req, res);
 });
 
 server.start();

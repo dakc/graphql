@@ -23,7 +23,6 @@ Open browser and access to http://yourip:8000/graphql
 
 ## Folder Structure
 * db.js - It contains the data which the client needs
-* express-graphql-wrapper.js - It contains a wrapper function to express-graphql from majidai
 * graphql-util.js - This is the main part for writting graphql operations
 * server.js - This is the part where we describe routings
 
